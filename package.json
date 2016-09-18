@@ -1,5 +1,5 @@
 {
-  "name": "week-13-friend-finder",
+  "name": "FriendFinder",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lijasminej/week-13-friend-finder.git"
+    "url": "git+https://github.com/hedbladucf/FriendFinder.git"
   },
-  "author": "lijasminej",
+  "author": "hedbladucf",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lijasminej/week-13-friend-finder/issues"
+    "url": "https://github.com/hedbladucf/FriendFinder/issues"
   },
-  "homepage": "https://github.com/lijasminej/week-13-friend-finder#readme",
+  "homepage": "https://github.com/hedbladucf/FriendFinder#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
     "bootstrap-select": "^1.10.0",
