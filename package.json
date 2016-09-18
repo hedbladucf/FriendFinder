@@ -1,0 +1,25 @@
+{
+  "name": "week-13-friend-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lijasminej/week-13-friend-finder.git"
+  },
+  "author": "lijasminej",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lijasminej/week-13-friend-finder/issues"
+  },
+  "homepage": "https://github.com/lijasminej/week-13-friend-finder#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "bootstrap-select": "^1.10.0",
+    "express": "^4.13.4"
+  }
+}

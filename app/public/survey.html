@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Friend Finder</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Bootstrap-Select CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Google Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+
+  <!-- Styles CSS -->
+  <style type="text/css">
+    body {
+      font-family: 'Open Sans', sans-serif;
+      text-transform: none;
+    }
+
+    label.question {
+      color: #767676;
+      font-weight: normal;
+    }
+
+    .custom {
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .number {
+      color: darkblue;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .form-group.required .control-label:after { 
+      content: " *";
+      color: red;
+    }
+
+    .large {
+      padding-left: 22px;
+      padding-right: 22px;
+      line-height: 180%;
+    }
+
+    .btn-primary {
+      background-color: darkblue;
+      border-color: #3d949a;
+    }
+
+    .btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary.focus {
+      background-color: #3d949a;
+      border-color: #3d949a;
+    }
+
+    .buttons {
+      padding-bottom: 9px;
+      margin: 40px 0 20px;
+    }
+
+    .site-footer {
+      position: relative;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      margin-top: 40px;
+      line-height: 1.5;
+      color: #767676;
+      border-top: 1px solid #eee;
+    }
+
+    .site-footer-links {
+      margin: 0;
+      list-style: none;
+    }
+  </style>
+
+  <!-- Bootstrap's JavaScript requires jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap-Select JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+</head>
+<body>
+
+
+  <!-- modal -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="match">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Thank You</h4>
+        </div>
+        <div class="modal-body text-center" id="match-result">
+
+          <!-- Show results here -->
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary custom large" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <!-- /modal -->
+
+  <!-- navbar -->
+  <div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand custom" href="#"><i class="glyphicon glyphicon-user"></i> Friend Finder</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li class="active">
+          <a href="/quiz">Quiz</a>
+        </li>
+        <li>
+          <a href="/api/friends">API Friends Data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row clearfix"></div>
+
+  <div class="container">
+
+    <form role="form">
+
+      <h3>Take the Survey!</h3>
+
+      <p class="lead page-header">Basic Information</p>
+
+      <div class="form-group required">
+        <label for="friendName" class="control-label">Name</label>
+        <input type="text" required="required" class="form-control" id="friendName" name="friendName" placeholder="">
+      </div>
+
+      <div class="form-group required">
+        <label for="friendPhoto" class="control-label">Link to Photo</label>
+        <input type="url" required="required" class="form-control" id="friendPhoto" name="friendPhoto" placeholder="">
+      </div>
+
+      <p class="lead page-header">Survey Questions</p>
+
+      <!-- Quiz-Content -->
+      <div class="quiz-content">
+
+      </div>
+
+      <div class="form-group buttons">
+        <button type="submit" class="btn btn-primary custom large" id="submit">Submit</button>
+        <button type="submit" class="btn btn-default custom large" id="clear">Clear</button>
+      </div>
+
+    </form>
+  </div>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="site-footer">
+        <p><a href="https://github.com/hedbladucf">hedbladufcf</a> | <a href="https://github.com/hedbladucf/FriendFinder">Github Repository</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+
+        // QUESTIONS
+        var questions = {
+          q1: "Your mind is always buzzing with unexplored ideas and plans.",
+          q2: "Generally speaking, you rely more on your experience than your imagination.",
+          q3: "You find it easy to stay relaxed and focused even when there is some pressure.",
+          q4: "You rarely do something just out of sheer curiosity.",
+          q5: "People can rarely upset you.",
+          q6: "It is often difficult for you to relate to other people’s feelings.",
+          q7: "In a discussion, truth should be more important than people’s sensitivities.",
+          q8: "You rarely get carried away by fantasies and ideas.",
+          q9: "You think that everyone’s views should be respected regardless of whether they are supported by facts or not.",
+          q10: "You feel more energetic after spending time with a group of people."
+        };
+        var qnumber = 1;
+        for (var question in questions) {
+
+          var div = $('<div></div>').addClass('form-group');
+
+          $(div).html('\
+            <label class="control-label question">\
+            <span class="number">Question ' + qnumber + ':</span> ' + questions[question] + '</label>\
+            <div><select class="selectpicker" title="Select answer">\
+                <option data-subtext="Strongly Disagree">1</option>\
+                <option>2</option>\
+                <option>3</option>\
+                <option>4</option>\
+                <option data-subtext="Strongly Agree">5</option>\
+              </select></div>');
+
+          // Provide each question with a unique ID
+          $(div).find('.selectpicker').attr('id','q' + qnumber);
+
+          // Appends div to quiz content
+          $('.quiz-content').append(div);
+
+          qnumber++;
+        };
+
+        console.log((qnumber - 1) + " questions displaying!");
+
+        // On submit, add data to friends list
+        $('#submit').on('click', function(){
+
+          // Create new object to store data
+          var newFriend = {
+            name: $('#friendName').val().trim(),
+            photo: $('#friendPhoto').val().trim(),
+            answers: []
+          };
+
+          // Loop through each question to push new friend's answer to array
+          for (var i = 1; i < qnumber; i++) {
+            newFriend.answers.push(Number($('#q' + i).selectpicker('val')));
+          };
+
+          // Create array to find friend match
+          var totalDifference = [];
+          
+          // Get location of root page
+          var currentURL = window.location.origin;
+
+          // Get existing array of data to compare answers
+          $.get(currentURL + '/api/friends', function(friendsArray, err, next){
+
+            // If friendsArray has members
+            if (friendsArray !== undefined) 
+            {
+
+              var newFriendSum = 0;
+              $.each(newFriend.answers,function() {
+                  newFriendSum += parseFloat(this);
+              });
+            
+              // Loop through existing friends
+              for (var j = 0; j < friendsArray.length; j++) 
+              {
+                var exisitingFriendSum = 0;
+
+                $.each(friendsArray[j].answers,function(){
+                  exisitingFriendSum += parseFloat(this);
+                });
+
+                totalDifference.push(Math.abs(exisitingFriendSum - newFriendSum));
+              };
+
+              // Finds min difference by utalizing function to find min value of array
+              Array.min = function(array){
+                return Math.min.apply(Math,array);
+              };
+
+              // Calculates friends match
+              var friendMatch = friendsArray[totalDifference.indexOf(Array.min(totalDifference))];
+
+              // Creates <h3> elements and puts the matched name in it
+              var matchText = $('<h3>');
+              matchText.text(friendMatch.name);
+
+              // Creates image tag and puts the matched friends picture url in it
+              var matchImg = $('<img>');
+              matchImg.attr('src',friendMatch.photo).width(300).height(300);
+
+              // Appends matched friends name and image to match-result ID
+              $('#match-result').append(matchText).append(matchImg);
+
+              // Displays match...
+              $('#match').modal('show');
+
+            };
+          });
+
+          // Post new friends data
+          $.post(currentURL + '/api/friends', newFriend, function(data){
+            console.log('New friend data submitted!');
+          });
+
+          return false;
+        });
+
+        // When modal closes, form gets reset
+        $('#match').on('hidden.bs.modal', function () {
+          $('#friendName').val('');
+          $('#friendPhoto').val('');
+          $('.selectpicker').selectpicker('val','');
+      });
+
+    });
+  </script>
+
+</body>
+</html>
