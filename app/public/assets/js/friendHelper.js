@@ -1,3 +1,4 @@
+/* JavaScript/jQuery to do friend calculations */
 $(document).ready(function(){
 
     // SURVEY QUESTIONS
