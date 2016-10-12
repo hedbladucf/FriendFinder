@@ -2,93 +2,16 @@
 <html>
 <head>
   <meta charset="UTF-8">
-
   <title>Friend Finder</title>
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS, JS, jQuery, Google Fonts, Bootstrap Select, and local CSS file. -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-  <!-- Bootstrap-Select CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
-
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
-  <!-- Google Fonts-->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-
-  <!-- Styles CSS -->
-  <style type="text/css">
-    body {
-      font-family: 'Open Sans', sans-serif;
-      text-transform: none;
-    }
-
-    label.question {
-      color: #767676;
-      font-weight: normal;
-    }
-
-    .custom {
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-    }
-
-    .number {
-      color: darkblue;
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    .form-group.required .control-label:after { 
-      content: " *";
-      color: red;
-    }
-
-    .large {
-      padding-left: 22px;
-      padding-right: 22px;
-      line-height: 180%;
-    }
-
-    .btn-primary {
-      background-color: darkblue;
-      border-color: #3d949a;
-    }
-
-    .btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary.focus {
-      background-color: #3d949a;
-      border-color: #3d949a;
-    }
-
-    .buttons {
-      padding-bottom: 9px;
-      margin: 40px 0 20px;
-    }
-
-    .site-footer {
-      position: relative;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      margin-top: 40px;
-      line-height: 1.5;
-      color: #767676;
-      border-top: 1px solid #eee;
-    }
-
-    .site-footer-links {
-      margin: 0;
-      list-style: none;
-    }
-  </style>
-
-  <!-- Bootstrap's JavaScript requires jQuery -->
+  <link rel="stylesheet" type="text/css" href="assets/surveyStyles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-  <!-- Bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap-Select JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 </head>
 <body>
@@ -104,16 +27,15 @@
         </div>
         <div class="modal-body text-center" id="match-result">
 
-          <!-- Show results here -->
+          <!-- RESULT MODAL -->
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary custom large" data-dismiss="modal">Close</button>
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-  <!-- /modal -->
+      </div>
+    </div>
+  </div>
 
   <!-- navbar -->
   <div class="navbar navbar-inverse navbar-static-top">
@@ -189,7 +111,7 @@
 
     $(document).ready(function(){
 
-        // QUESTIONS
+        // SURVEY QUESTIONS
         var questions = {
           q1: "Your mind is always buzzing with unexplored ideas and plans.",
           q2: "Generally speaking, you rely more on your experience than your imagination.",
