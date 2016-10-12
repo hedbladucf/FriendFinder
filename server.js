@@ -5,7 +5,10 @@ var path = require('path');
 
 var app = express();
 // port = 8080, or default
-var PORT = process.env.PORT || 3000;  
+var PORT = process.env.PORT || 3000; 
+
+// Static route
+app.use(express.static(__dirname + '/app/public'));
 
 // Manage file types with bodyParser
 app.use(bodyParser.json());
